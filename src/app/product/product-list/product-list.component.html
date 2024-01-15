@@ -1,0 +1,19 @@
+<p>product-list works!</p>
+
+<ng-container *ngIf="products$ | async as products">
+  <input
+    type="checkbox"
+    [(ngModel)]="showProductCode"
+    (change)="toggleProductCode()"
+  />
+  Show Product Code
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let product of products">
+      {{ product.productName }}
+      @if (displayCode) {
+      {{ product.productCode }}
+      }
+    </li>
+  </ul>
+</ng-container>
